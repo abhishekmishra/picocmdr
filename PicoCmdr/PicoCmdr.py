@@ -1,4 +1,6 @@
 from SciFiCmdr import commander
+import os
 
 def run():
-    commander(title="PicoCmdr")
+    command = commander(title="PicoCmdr")
+    os.system(command)
