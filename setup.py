@@ -6,6 +6,7 @@ setup(
     packages=["PicoCmdr"],
     install_requires=[
         "pysimplegui",
-        "SciFiCmdr"
+        "SciFiCmdr",
+        "keyboard"
         ],
 )
