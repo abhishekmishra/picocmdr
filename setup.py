@@ -4,9 +4,5 @@ setup(
     name="PicoCmdr",
     version="0.0.1",
     packages=["PicoCmdr"],
-    install_requires=[
-        "pysimplegui",
-        "SciFiCmdr",
-        "keyboard"
-        ],
+    install_requires=["pysimplegui", "SciFiCmdr", "keyboard"],
 )
