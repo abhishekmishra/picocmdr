@@ -2,8 +2,25 @@ from SciFiCmdr import commander
 import os
 import sys
 from pathlib import Path
+import webbrowser
 
-from SciFiCmdr.SciFiCmdr import register_command, register_handler
+from SciFiCmdr.SciFiCmdr import (
+    get_handlers,
+    register_command,
+    register_handler,
+)
+
+
+def google_search(cmd):
+    items = cmd.split(" ")
+    items.pop(0)
+    webbrowser.open_new_tab(
+        "https://www.google.com/search?q=" + "+".join(items)
+    )
+
+
+register_command("goog", "google search")
+register_handler("goog", google_search)
 
 
 def list_dir_get_executables(directory):
@@ -49,5 +66,9 @@ def run():
                     print(ke)
 
     command = commander(title="PicoCmdr")
+
     if command is not None and len(command) > 0:
-        os.system(command)
+        cmd_name = command.split(" ")[0]
+        handlers = get_handlers(cmd_name)
+        for handler in handlers:
+            handler(command)
